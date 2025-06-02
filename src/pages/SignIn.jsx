@@ -1,9 +1,14 @@
 import React,{useState} from "react";
+import {useNavigate} from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
+
 const SignIn = () =>{
     const [email,setEmail]=useState("");
     const [password,setPassword]= useState("");
     const [error,setError]= useState({email: false, password: false});
     const [success, setSuccess]=useState(false);
+    const navigate=useNavigate();
+    const {setLoggedIn}=useAuth();
     
 
     const handleSignIn = (event) => {
@@ -20,14 +25,8 @@ const SignIn = () =>{
             //Error exists so need to alert
             return;
         }
-       
-        setSuccess(true);
-        setTimeout(() => {
-            setSuccess(false);
-            setEmail("");
-            setPassword("");
-            setError({email:false, password: false });
-        }, 2000);
+       setLoggedIn(true);
+       navigate("/home");
     };
 
 
