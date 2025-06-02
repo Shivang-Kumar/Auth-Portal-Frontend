@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
+import {Link} from 'react-router-dom';
 
 const SignIn = () =>{
     const [email,setEmail]=useState("");
@@ -22,11 +23,21 @@ const SignIn = () =>{
         };
         setError(newError);
         if(newError.email||newError.password){
-            //Error exists so need to alert
+            //Error exists so`no need to alert
             return;
         }
-       setLoggedIn(true);
-       navigate("/home");
+
+        const savedEmail = localStorage.getItem("signup_email");
+        const savedPassword = localStorage.getItem("signup_password");
+        if(email === savedEmail && password === savedPassword){  
+            setLoggedIn(true);
+            navigate("/home");
+        }
+        else{
+            alert("Email or password doesnot match");
+            navigate("/");
+        }
+     
     };
 
 
@@ -60,7 +71,11 @@ const SignIn = () =>{
                 backgroundColor: email && password ? "#007bff" : "#999",
                 cursor: email && password ? "pointer" : "not-allowed",
             }} type="submit" disabled={!email || !password}>Sign In</button>
+            <p style={{ fontSize: "14px", textAlign: "center" }}>
+                 Don't have an account? <Link to="/signup">Sign up</Link>
+            </p>
         </form>
+        
     );
 };
 
