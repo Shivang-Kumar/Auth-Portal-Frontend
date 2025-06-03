@@ -29,8 +29,9 @@ const SignUp= () =>{
     
 
     return (
-        <form style={styles.container} onSubmit={handleSignUp}>
-            <h2 style={styles.heading}>Sign Up</h2>
+         <div className="p-3 mb-2 bg-danger text-black d-flex justify-content-center align-items-center vh-100">
+        <form  className="p-4 bg-light rounded shadow" style={{...styles.container, minWidth: "300px"}} onSubmit={handleSignUp}>
+            <div style={styles.heading}>Sign Up</div>
             <input 
             type="email"
             placeholder="Email"
@@ -54,11 +55,13 @@ const SignUp= () =>{
         {error.password && (
             <div style={styles.error}>Password is required!</div>
         )}
-        <button type='submit' style={styles.button}>Sign Up</button>
+        <button type='submit' style={{...styles.button, backgroundColor: email && password ? "#007bff" : "#999",
+                cursor: email && password ? "pointer" : "not-allowed",}} disabled={!email || !password}>Sign Up</button>
         <p style={{ fontSize: "14px", textAlign: "center" }}>
              Already have an account? <Link to="/">Sign In</Link>
         </p>
         </form>
+        </div>
     );
 
 };
@@ -77,7 +80,7 @@ const styles={
     input:{
         padding: "10px",
         fontSize: "16px",
-        backgroundColor: "#28a745",
+        backgroundColor: "white",
         color: "white",
         border: "none",
         cursor: "pointer",
@@ -86,6 +89,14 @@ const styles={
     color: "red",
     fontSize: "12px",
   },
+  button:{
+        padding:"10px",
+        fontSize:"16px",
+        backgroundColor:"#007bff",
+        color:"white",
+        border:"none",
+        cursor:"pointer"
+    },
 };
 
 export default SignUp;

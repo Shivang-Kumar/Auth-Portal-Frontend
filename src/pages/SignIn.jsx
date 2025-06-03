@@ -2,6 +2,8 @@ import React,{useState} from "react";
 import {useNavigate} from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import {Link} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const SignIn = () =>{
     const [email,setEmail]=useState("");
@@ -42,7 +44,8 @@ const SignIn = () =>{
 
 
     return (
-        <form style={styles.container} onSubmit={handleSignIn}>
+        <div className="p-3 mb-2 bg-danger text-black d-flex justify-content-center align-items-center vh-100">
+        <form className="p-4 bg-light rounded shadow" style={{...styles.container, minWidth: "300px" }}  onSubmit={handleSignIn}>
             <div style={styles.heading}>Sign In</div>
             {success && (<div style={{color:"green", fontSize:"14px"}}>Login Successfull!</div>)}
             <input
@@ -60,7 +63,7 @@ const SignIn = () =>{
                 border: error.password ? "2px solid red" : "1px solid #ccc",
             }} 
             type="password" 
-            placeholder="password"  
+            placeholder="Password"  
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
             />
@@ -75,6 +78,7 @@ const SignIn = () =>{
                  Don't have an account? <Link to="/signup">Sign up</Link>
             </p>
         </form>
+        </div>
         
     );
 };
@@ -88,7 +92,7 @@ const styles={
         gap:"10px",
     },
     heading:{
-        textAlign:"centre",
+        textAlign:"center",
     },
     input:{
         padding:"10px",
