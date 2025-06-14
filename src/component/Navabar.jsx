@@ -3,7 +3,7 @@ import search from '../assets/search.svg';
 import menu from '../assets/menu.svg'
 const Navbar=()=>{
 return (
-  <div className="flex items-center justify-between space-x-4 h-[100px] bg-white  sticky top-0 z-50 shadow">
+  <div className="flex   items-center justify-between space-x-4 h-[100px] bg-white  sticky top-0 z-50 shadow">
     <img src={logo} alt="Logo" className="h-12 pl-[25px]" />
     <div className="flex space-x-4">
     <div className='mr-10 '>Become a host</div>

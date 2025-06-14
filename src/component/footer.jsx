@@ -4,7 +4,7 @@ import Emaillogo from "../assets/gmail.svg"
 import search from '../assets/search.svg';
 const Footer=()=>{
 return(
-    <div className="bg-amber-50   h-100 mt-20">
+    <div className="bg-amber-50   h-100 mt-20  w-full">
         <div className="h-80 flex justify-between">
             <ul className="ml-7 mt-7 space-y-4">
                 <li className="font-bold">Support</li>
@@ -43,9 +43,9 @@ return(
                 </div>
                 <div className="flex gap-6 justify-center mr-15">
                     <a href="" className="flex items-center gap-1"><img src={search} alt="search"  className="h-5"/>English(IN)</a>
-                     <a href=""><img src={GoogleLogo} alt="google" className="h-5"/></a>
-                      <a href=""><img src={Emaillogo} alt="email"  className="h-5"/></a>
-                           <a href=""><img src={Applelogo} alt="email"  className="h-5"/></a>
+                    <a href=""><img src={GoogleLogo} alt="google" className="h-5"/></a>
+                    <a href=""><img src={Emaillogo} alt="email"  className="h-5"/></a>
+                    <a href=""><img src={Applelogo} alt="email"  className="h-5"/></a>
                 </div>
             </div>
     </div>
