@@ -1,10 +1,11 @@
-import Login from './pages/Login';
+import AuthWrapper from './pages/AuthWrapper';
+
 
 
 function App() {
  return(
   <>
-  <Login/>
+  <AuthWrapper/>
   </>
  );
 };
