@@ -1,7 +1,7 @@
 import Back from '../assets/back.svg'
 import { useState } from 'react';
 import InputBox from './InputBox';
-const VerifyNumber=({phone})=>{
+const VerifyNumber=({phone ,setStep})=>{
 
     const [otp, setOtp] = useState("");
     const [check , setCheck]=useState(true);
@@ -18,6 +18,10 @@ const VerifyNumber=({phone})=>{
         }
     }
 
+    const handleSubmit=()=>{
+        if(check==false)
+        setStep("Add_details");
+    }
 
 return(
     <>
@@ -33,7 +37,7 @@ return(
             </div>
             <div className="shadow w-full h-25 flex items-center justify-between">
                 <div className='underline ml-6 hover:shadow-sm hover:rounded hover:bg-gray-200  hover:h-8 hover:w-45 hover:cursor-pointer'><a href="#" className='font-bold w-full h-full'>Choose different option</a></div>
-                <button type="submit" disabled={check} className={` border rounded text-center  h-8 w-25 mr-6  ${check ? 'bg-gray-300  text-white cursor-not-allowed': 'bg-orange-600 hover:bg-orange-700 cursor-pointer text-white' }`}>Continue</button>
+                <button type="submit" disabled={check} onClick={handleSubmit} className={` border rounded text-center  h-8 w-25 mr-6  ${check ? 'bg-gray-300  text-white cursor-not-allowed': 'bg-orange-600 hover:bg-orange-700 cursor-pointer text-white' }`}>Continue</button>
             </div>
         </div>
     </>

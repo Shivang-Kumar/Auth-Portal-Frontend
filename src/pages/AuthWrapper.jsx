@@ -3,6 +3,7 @@ import Navbar from "../component/Navabar";
 import Footer from "../component/footer";
 import Login from "./Login";
 import VerifyNumber from "../component/VerifuNumber";
+import AdditionalDetails from "../component/AdditionalDetails";
 
 const AuthWrapper=()=>{
     const[phoneNo, setPhoneNo]=useState();
@@ -22,14 +23,10 @@ const AuthWrapper=()=>{
          return (<>
          <div className="flex flex-col min-h-screen">
           <Navbar/>
-          <div className="flex-grow mx-auto mt-25 mb-20">{
-            step === 'login'? (
-                <Login phoneNo={phoneNo} handlePhoneChange={handlePhoneChange} setStep={setStep} />
-            ) : (
-                <VerifyNumber phone={phoneNo}/>
-            ) 
-
-          }
+          <div className="flex-grow mx-auto mt-25 mb-20">
+            {step === 'login' && (<Login phoneNo={phoneNo} handlePhoneChange={handlePhoneChange} setStep={setStep} />)} 
+            {step === 'verify_contact'&& (<VerifyNumber phone={phoneNo} setStep={setStep}/>)}
+            {step === 'Add_details' && (<AdditionalDetails setStep={setStep}/>)}
         </div>
           <Footer />
           </div>

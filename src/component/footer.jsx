@@ -32,7 +32,7 @@ return(
                 <li>Airbnb.org emergency stays</li>
             </ul>
         </div>
-        <div class="h-px bg-gray-300 ml-15 mr-15"></div>
+        <div className="h-px bg-gray-300 ml-15 mr-15"></div>
             <div className="flex justify-between items-center h-20">
                 <div className="flex  ml-5 gap-2">            
                 <span>© 2025 Airbnb, Inc.</span>
