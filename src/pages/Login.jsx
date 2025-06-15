@@ -1,6 +1,3 @@
-import Navbar from "../component/Navabar";
-import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
 import Contry_Dropdown from '../component/ContryDropdown'
 import GoogleLogo from "../assets/google.svg"
 import Applelogo from "../assets/apple.svg"
