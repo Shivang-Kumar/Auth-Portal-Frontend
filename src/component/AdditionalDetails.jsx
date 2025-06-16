@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
 
 
 
-    const AddDetails=(setStep)=>{
+    const AddDetails=({setStep})=>{
 
         const [firstName,setFirstName]=useState(undefined);
         const [lastName,setlastName]=useState(undefined);
@@ -32,13 +32,9 @@ import {useEffect, useState} from 'react';
             let hasErrors = Object.values(error).some(err => err === true);
             if(!hasErrors)
             {
-                setStep("Additional Details");
+                setStep("AgreeAndContinue");
             }
             }
-    
-
-          
-
         return (
             <div className="flex flex-col   flex-grow w-[80vh] bg-white rounded border-[1px] p-5 ">
                     <div className="h-[10%] flex items-center "><button><img src={Back} alt="Back"  className='h-5'/></button><div className="mx-auto text-center font-bold">Finish Signing Up</div></div>
@@ -59,7 +55,7 @@ import {useEffect, useState} from 'react';
                         { error.eEmail && <div className="text-red-500 text-sm mb-2   ">! Email Cannot be Empty</div>}
                         <div className='text-xs mt-1'>We'll email you trip confirmations and receipts.</div>
                         <div className='mt-5 mb-5 text-xs'>By selecting Agree and continue, I agree to Airbnb’s Terms of Service, Payments Terms of Service, and Nondiscrimination Policy and acknowledge the Privacy Policy.</div>
-                        <div className="text-white text-xl mt-5 flex  justify-center  h-11 w-full my-auto  border-2 rounded-2xl bg-red-600 hover:cursor-pointer" >Agree and Continue</div>
+                        <div className="text-white text-xl mt-5 flex  justify-center  h-11 w-full my-auto  border-2 rounded-2xl bg-red-600 hover:cursor-pointer" onClick={handleAgreeAndContinue}>Agree and Continue</div>
                         <div className="w-full mt-7 h-px bg-gray-300"/>
                     </div>
                     <div className="h-[20%]  mt-5">
