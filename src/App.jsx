@@ -1,4 +1,5 @@
 import AuthWrapper from './pages/AuthWrapper';
+import AgreeAndContinue from './component/AgreeAndContinue';
 
 
 
